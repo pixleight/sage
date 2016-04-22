@@ -1,8 +1,10 @@
 <header class="mdl-layout__header">
   <div class="mdl-layout__header-row">
+    <!-- Title -->
     <a class="mdl-layout-title" href="<?= esc_url(home_url('/')); ?>"><?php bloginfo('name'); ?></a>
+    <!-- Add spacer, to align navigation to the right -->
     <div class="mdl-layout-spacer"></div>
-
+    <!-- Navigation -->
     <?php
     if( has_nav_menu( 'primary_navigation' ) ) :
       // Remove wrapping <li> from around links
