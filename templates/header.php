@@ -21,6 +21,18 @@
       echo str_replace( $find, $replace, $cleanermenu );
       endif;
     ?>
+
+    <!-- Expandable search form -->
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
+      <label class="mdl-button mdl-js-button mdl-button--icon" for="header-search">
+        <i class="material-icons">search</i>
+      </label>
+      <div class="mdl-textfield__expandable-holder">
+        <form role="search" method="get" class="search-form" action="<?php echo esc_url( home_url( '/' ) ); ?>">
+          <input type="search" class="search-field mdl-textfield__input" placeholder="Search" value="<?php echo get_search_query(); ?>" name="s" id="header-search">
+        </form>
+      </div>
+    </div>
   </div>
 </header>
 <div class="mdl-layout__drawer">
