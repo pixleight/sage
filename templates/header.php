@@ -1,12 +1,43 @@
-<header class="banner">
-  <div class="container">
-    <a class="brand" href="<?= esc_url(home_url('/')); ?>"><?php bloginfo('name'); ?></a>
-    <nav class="nav-primary">
-      <?php
-      if (has_nav_menu('primary_navigation')) :
-        wp_nav_menu(['theme_location' => 'primary_navigation', 'menu_class' => 'nav']);
+<header class="mdl-layout__header">
+  <div class="mdl-layout__header-row">
+    <a class="mdl-layout-title" href="<?= esc_url(home_url('/')); ?>"><?php bloginfo('name'); ?></a>
+    <div class="mdl-layout-spacer"></div>
+
+    <?php
+    if( has_nav_menu( 'primary_navigation' ) ) :
+      // Remove wrapping <li> from around links
+      // https://css-tricks.com/snippets/wordpress/remove-li-elements-from-output-of-wp_nav_menu/#comment-542093
+      $cleanermenu = wp_nav_menu( array(
+        'theme_location' => 'primary_navigation',
+        'container' => false,
+        'items_wrap' => '<nav class="mdl-navigation">%3$s</nav>',
+        'echo' => false,
+        'depth' => 1,
+      ) );
+      $find = array('><a','li');
+      $replace = array('','a');
+      echo str_replace( $find, $replace, $cleanermenu );
       endif;
-      ?>
-    </nav>
+    ?>
   </div>
 </header>
+<div class="mdl-layout__drawer">
+  <a class="mdl-layout-title" href="<?= esc_url(home_url('/')); ?>"><?php bloginfo('name'); ?></a>
+
+  <?php
+  if ( has_nav_menu( 'primary_navigation' ) ) :
+    // Remove wrapping <li> from around links
+    // https://css-tricks.com/snippets/wordpress/remove-li-elements-from-output-of-wp_nav_menu/#comment-542093
+    $cleanermenu = wp_nav_menu( array(
+      'theme_location' => 'primary_navigation',
+      'container' => false,
+      'items_wrap' => '<nav class="mdl-navigation">%3$s</nav>',
+      'echo' => false,
+      'depth' => 1,
+    ) );
+    $find = array('><a','li');
+    $replace = array('','a');
+    echo str_replace( $find, $replace, $cleanermenu );
+  endif;
+  ?>
+</div>
