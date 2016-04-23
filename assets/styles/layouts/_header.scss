@@ -1,3 +1,9 @@
 .mdl-navigation .menu-item {
   @extend .mdl-navigation__link;
 }
+
+@media (max-width: $grid-desktop-breakpoint) {
+  .primary-navigation {
+    display: none;
+  }
+}
