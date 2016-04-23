@@ -1,4 +1,4 @@
-<header class="mdl-layout__header">
+<header class="mdl-layout__header mdl-layout__header--waterfall">
   <div class="mdl-layout__header-row">
     <!-- Title -->
     <a class="mdl-layout-title" href="<?= esc_url(home_url('/')); ?>"><?php bloginfo('name'); ?></a>
@@ -12,7 +12,7 @@
       $cleanermenu = wp_nav_menu( array(
         'theme_location' => 'primary_navigation',
         'container' => false,
-        'items_wrap' => '<nav class="mdl-navigation">%3$s</nav>',
+        'items_wrap' => '<div class="primary-navigation"><nav class="mdl-navigation">%3$s</nav></div>',
         'echo' => false,
         'depth' => 1,
       ) );
@@ -23,7 +23,7 @@
     ?>
 
     <!-- Expandable search form -->
-    <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right mdl-textfield--full-width">
       <label class="mdl-button mdl-js-button mdl-button--icon" for="header-search">
         <i class="material-icons">search</i>
       </label>
