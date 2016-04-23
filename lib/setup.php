@@ -57,10 +57,10 @@ function widgets_init() {
   register_sidebar([
     'name'          => __('Primary', 'sage'),
     'id'            => 'sidebar-primary',
-    'before_widget' => '<section class="widget %1$s %2$s">',
-    'after_widget'  => '</section>',
-    'before_title'  => '<h3>',
-    'after_title'   => '</h3>'
+    'before_widget' => '<section class="widget mdl-cell mdl-cell--12-col mdl-card mdl-shadow--4dp %1$s %2$s"><div class="mdl-card__supporting-text">',
+    'after_widget'  => '</div></section>',
+    'before_title'  => '</div><div class="mdl-card__title"><h2 class="mdl-card__title-text">',
+    'after_title'   => '</h2></div><div class="mdl-card__supporting-text">'
   ]);
 
   register_sidebar([
